@@ -22,9 +22,29 @@
 
 ## Database Tables
 
-- Table `users` - contains xx yy zz
-- Table `something` - contains ww qq ss
-- ...
+* Table `stations` - id, name
+  
+  Stores the unique name of each station in the network.
+
+* Table `lines` - id, name
+  
+  Stores the unique name of each metro line.
+
+* Table `lineStations` - lineId, stationId, position
+  
+  Join table connecting lines and stations in order. Connections are derived from adjacent positions; interchange stations appear on more than one line.
+
+* Table `events` - id, description, effect
+  
+  Random events applied during execution. Effect is an integer from -4 to +4.
+
+* Table `users` - id, username, hashedPassword, salt
+  
+  Registered users with scrypt-hashed credentials.
+
+* Table `games` - id, userId, startStationId, destinationStationId, score, status, createdAt
+  
+  One row per game. Used for the ranking (best score per user).
 
 ## Main React Components
 
