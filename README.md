@@ -60,8 +60,13 @@
 
 ## Users Credentials
 
-- username, password (plus any other requested info)
-- username, password (plus any other requested info)
+| Username | Password |
+|---|---|
+| barca | password |
+| nilay | password |
+| ender | password |
+| askim | password |
+| deha | password |
 
 ## Use of AI Tools
 Briefly describe whether you used any AI tools (e.g., ChatGPT, GitHub Copilot, Claude) while working on this project, for which purposes (e.g., clarifying concepts, debugging, generating code), and how you verified or adapted their output.
