@@ -7,7 +7,7 @@ function NavBar({ user, onLogout }) {
     return (
         <Navbar bg="dark" variant="dark" sticky="top">
             <Container fluid="lg">
-                <Navbar.Brand as={Link} to={user ? '/game' : '/'}>🚇 Race the Rails</Navbar.Brand>
+                <Navbar.Brand as={Link} to={user ? '/game' : '/'}>RACE THE RAILS</Navbar.Brand>
                 <Nav className="ms-auto align-items-center gap-2">
                     {user ? (
                         <>
