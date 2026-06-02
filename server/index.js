@@ -142,6 +142,11 @@ app.put('/api/games/:id', isLoggedIn, async (req, res) => {
             return res.status(400).json({ error: 'Route is required.' });
         }
 
+        const parsedRoute = route.map(seg => ({
+            from: parseInt(seg.from),
+            to: parseInt(seg.to)
+        }));
+
         const game = await getGame(gameId, req.user.id);
         if(!game) {
             return res.status(404).json({ error: 'Game not found.' });
@@ -151,7 +156,7 @@ app.put('/api/games/:id', isLoggedIn, async (req, res) => {
         }
 
         const network = await getFullNetwork();
-        const result = validateRoute(route, network.lineStations, game.startStationId, game.destinationStationId);
+        const result = validateRoute(parsedRoute, network.lineStations, game.startStationId, game.destinationStationId);
 
         if(!result.valid) {
             await completeGame(gameId, 0);
@@ -165,7 +170,7 @@ app.put('/api/games/:id', isLoggedIn, async (req, res) => {
 
         let coins = 20;
         const steps = [];
-        for(const seg of route) {
+        for(const seg of parsedRoute) {
             const event = await getRandomEvent();
             coins += event.effect;
             steps.push({
@@ -192,5 +197,4 @@ app.get('/api/ranking', isLoggedIn, async (req, res) => {
         res.status(500).json({ error: 'Failed to retrieve ranking.' });
     }
 });
-
 app.listen(PORT, () => console.log(`Server listening at http://localhost:${PORT}`));
