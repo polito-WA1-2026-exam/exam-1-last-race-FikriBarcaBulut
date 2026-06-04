@@ -36,17 +36,24 @@ function PlanningPhase({ gameData, onSubmit }) {
 
     const lastStationId = route.length > 0 ? route[route.length - 1].to : null;
 
-    const addSegment = (seg) => {
+    const addSegment=(seg)=>{
         if(submitted) {
             return;
         }
         let from = seg.from.id;
         let to = seg.to.id;
-        if(lastStationId !== null && lastStationId === seg.to.id) {
-            from = seg.to.id;
-            to = seg.from.id;
+        if(lastStationId ===null) {
+            if(seg.to.id === startStation.id) {
+                from = seg.to.id;
+                to = seg.from.id;
+            }
+        } else {
+            if(lastStationId === seg.to.id) {
+                from = seg.to.id;
+                to = seg.from.id;
+            }
         }
-        setRoute(r => [...r, { from, to }]);
+        setRoute(r=>[...r, { from, to }]);
     };
 
     const removeLastSegment = () => {
