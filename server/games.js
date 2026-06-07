@@ -44,13 +44,20 @@ export const completeGame = (gameId, score)=>{
         );
     });
 };
-
 export const getRanking = ()=>{
     return new Promise((resolve, reject)=>{
         db.all(
-            `SELECT u.username, MAX(g.score) AS bestScore
-             FROM games g JOIN users u ON g.userId = u.id
+            `SELECT u.username, g.score AS bestScore,
+                    s1.name AS startStation, s2.name AS destStation
+             FROM games g
+             JOIN users u ON g.userId = u.id
+             JOIN stations s1 ON g.startStationId = s1.id
+             JOIN stations s2 ON g.destinationStationId = s2.id
              WHERE g.status = 'completed'
+               AND g.score = (
+                 SELECT MAX(g2.score) FROM games g2
+                 WHERE g2.userId = g.userId AND g2.status = 'completed'
+               )
              GROUP BY g.userId
              ORDER BY bestScore DESC`,
             [],
@@ -63,3 +70,4 @@ export const getRanking = ()=>{
         );
     });
 };
+

@@ -26,6 +26,7 @@ function RankingPage() {
                         <tr>
                             <th style={{ width: '60px' }}>#</th>
                             <th>Player</th>
+                            <th>Best Route</th>
                             <th style={{ width: '120px' }}>Best Score</th>
                         </tr>
                     </thead>
@@ -34,6 +35,7 @@ function RankingPage() {
                             <tr key={entry.username}>
                                 <td className="text-muted">{idx + 1}</td>
                                 <td>{entry.username}</td>
+                                <td className="text-muted small">{entry.startStation} → {entry.destStation}</td>
                                 <td className="fw-semibold">{entry.bestScore} coins</td>
                             </tr>
                         ))}
