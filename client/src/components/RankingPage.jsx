@@ -32,7 +32,7 @@ function RankingPage() {
                     </thead>
                     <tbody>
                         {ranking.map((entry, idx) => (
-                            <tr key={entry.username}>
+                            <tr key={entry.username} className={idx === 0 ? 'ranking-first' : ''}>
                                 <td className="text-muted">{idx + 1}</td>
                                 <td>{entry.username}</td>
                                 <td className="text-muted small">{entry.startStation} → {entry.destStation}</td>

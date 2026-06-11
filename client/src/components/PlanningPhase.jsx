@@ -89,7 +89,7 @@ function PlanningPhase({ gameData, onSubmit }) {
                         <strong>{destStation.name}</strong>
                     </div>
                 </div>
-                <Badge bg={timerColor} className="fs-5 px-3 py-2">{timeLeft}s</Badge>
+                <Badge bg={timerColor} className={`fs-5 px-3 py-2 ${timeLeft <= 15 ? 'timer-pulse' : ''}`}>{timeLeft}s</Badge>
                 <div className="d-flex gap-2">
                     <Button
                         variant="outline-secondary"
@@ -133,19 +133,16 @@ function PlanningPhase({ gameData, onSubmit }) {
                         <Card.Body className="p-0" style={{ maxHeight: '520px', overflowY: 'auto' }}>
                             <ListGroup variant="flush">
                                 {segments.map((seg, idx) => {
-                                    const connects = lastStationId === null ||
-                                        seg.from.id === lastStationId ||
-                                        seg.to.id === lastStationId;
                                     return (
                                         <ListGroup.Item
                                             key={idx}
-                                            className={`d-flex justify-content-between align-items-center py-2 ${!connects ? 'opacity-50' : ''}`}>
+                                            className="d-flex justify-content-between align-items-center py-2">
                                             <span>{seg.from.name} - {seg.to.name}</span>
                                             <Button
                                                 size="sm"
-                                                variant={connects ? 'outline-dark' : 'outline-secondary'}
+                                                variant="outline-dark"
                                                 onClick={() => addSegment(seg)}
-                                                disabled={!connects || submitted}>
+                                                disabled={submitted}>
                                                 Add
                                             </Button>
                                         </ListGroup.Item>
