@@ -3,7 +3,7 @@ import { Badge, Card, Button } from 'react-bootstrap';
 
 const POSITIONS = {
     1:  { x: 580, y: 60  },
-    2:  { x: 460, y: 60  },
+    2:  { x: 460, y: 140 },
     3:  { x: 350, y: 140 },
     4:  { x: 180, y: 290 },
     5:  { x: 180, y: 400 },
