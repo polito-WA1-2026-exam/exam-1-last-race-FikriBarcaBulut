@@ -83,6 +83,15 @@ export const validateRoute = (submittedSegments, lineStations, startId, destId) 
         }
     }
 
+    const segmentsSeen = new Set();
+    for(const seg of submittedSegments) {
+        const key = `${Math.min(seg.from, seg.to)}-${Math.max(seg.from, seg.to)}`;
+        if(segmentsSeen.has(key)) {
+            return { valid: false, reason: 'The same segment cannot be used more than once.' };
+        }
+        segmentsSeen.add(key);
+    }
+
     const byLine = {};
     for(const ls of lineStations) {
         if(!byLine[ls.lineId]) {
