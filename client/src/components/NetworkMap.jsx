@@ -4,34 +4,34 @@ import { Badge, Card, Button } from 'react-bootstrap';
 const POSITIONS = {
     1:  { x: 580, y: 60  },
     2:  { x: 460, y: 60  },
-    3:  { x: 340, y: 130 },
-    4:  { x: 170, y: 290 },
-    5:  { x: 170, y: 390 },
-    6:  { x: 170, y: 470 },
-    7:  { x: 240, y: 200 },
-    8:  { x: 370, y: 220 },
-    9:  { x: 430, y: 330 },
-    10: { x: 540, y: 400 },
-    11: { x: 70,  y: 60  },
-    12: { x: 150, y: 130 },
-    13: { x: 270, y: 370 },
-    14: { x: 360, y: 440 },
+    3:  { x: 350, y: 140 },
+    4:  { x: 180, y: 290 },
+    5:  { x: 180, y: 400 },
+    6:  { x: 180, y: 480 },
+    7:  { x: 180, y: 200 },
+    8:  { x: 450, y: 230 },
+    9:  { x: 450, y: 400 },
+    10: { x: 560, y: 400 },
+    11: { x: 270,  y: 60  },
+    12: { x: 100, y: 60 },
+    13: { x: 290, y: 360 },
+    14: { x: 370, y: 360 },
 };
 
 const LABEL = {
     1:  { dx: 10,  dy: 4,   anchor: 'start'  },
     2:  { dx: 0,   dy: -14, anchor: 'middle' },
-    3:  { dx: 10,  dy: -8,  anchor: 'start'  },
+    3:  { dx: 10,  dy: -10, anchor: 'start'  },
     4:  { dx: -12, dy: 4,   anchor: 'end'    },
     5:  { dx: -12, dy: 4,   anchor: 'end'    },
     6:  { dx: -12, dy: 4,   anchor: 'end'    },
-    7:  { dx: -12, dy: 4,   anchor: 'end'    },
+    7:  { dx: -12, dy: -8,  anchor: 'end'    },
     8:  { dx: 10,  dy: 4,   anchor: 'start'  },
-    9:  { dx: 10,  dy: 4,   anchor: 'start'  },
+    9:  { dx: 0,   dy: -14, anchor: 'middle' },
     10: { dx: 10,  dy: 4,   anchor: 'start'  },
     11: { dx: -12, dy: 4,   anchor: 'end'    },
     12: { dx: -12, dy: 4,   anchor: 'end'    },
-    13: { dx: -12, dy: 4,   anchor: 'end'    },
+    13: { dx: -12, dy: 14,  anchor: 'end'    },
     14: { dx: 0,   dy: 18,  anchor: 'middle' },
 };
 
@@ -39,7 +39,7 @@ const SVG_LINE_COLORS = {
     'Red Line':    '#c0392b',
     'Blue Line':   '#2980b9',
     'Green Line':  '#27ae60',
-    'Yellow Line': '#e67e22',
+    'Yellow Line': '#e8b800',
 };
 
 const badgeColor = (name) => {
@@ -145,8 +145,11 @@ function NetworkMap({ network, showLines }) {
                                         y={pos.y + lbl.dy}
                                         fontSize={11}
                                         textAnchor={lbl.anchor}
-                                        fill="#222"
-                                        fontWeight={interchange ? '600' : '400'}>
+                                        fill={interchange ? '#7e0b78' : '#222'}
+                                        stroke="white"
+                                        strokeWidth={3}
+                                        paintOrder="stroke"
+                                        fontWeight={interchange ? '700' : '600'}>
                                         {station.name}
                                     </text>
                                 </g>

@@ -65,10 +65,25 @@
 - `RankingPage` (in `RankingPage.jsx`): fetches and displays the best score per user
 
 ## Screenshot
- 
-![Ranking page](./img/screenshot-ranking.png)
- 
-![Planning phase during a game](./img/screenshot-game.png)
+> Required: Ranking Page
+
+![Ranking Page](images/RankingPage.png)
+
+> Required: During a Game (Planning Phase)
+
+![Planning Phase During a Game](images/InGamePage_V2.png)
+
+> Additional Screenshots
+
+![Instructions Page](images/InitialPage.png)
+
+![Login Page](images/LoginPage.png)
+
+![Network Map View](images/HomePage_MapView.png)
+
+![Network List View](images/HomePage_ListView.png)
+
+![Game Results Page](images/ResultPage.png)
  
 ## Users Credentials
  
@@ -81,4 +96,4 @@
 | deha | password |
 
 ## Use of AI Tools
-I used Claude to assist with the frontend side of the project. I had initially built a basic interface on my own but used Claude to improve its visual design and make it more user friendly. I also used it to help format and structure the README file. I reviewed and adapted the generated output to fit my project's needs. For the backend, I relied on course slides and Stack Overflow rather than AI tools.
+I used Claude to assist with the frontend side of the project. I had initially built a basic interface on my own but used Claude to improve its visual design and make it more user friendly but I did not take all the code and copy pasted it, after seeing the template that has been given to me by Claude, I changed it according to my own liking. I also used it to help format and structure the README file. I reviewed and adapted the generated output to fit my project's needs. For the backend, I relied on course slides and Stack Overflow rather than AI tools and the exam simulation that I have done.
