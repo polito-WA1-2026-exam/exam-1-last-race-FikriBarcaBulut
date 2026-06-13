@@ -33,7 +33,7 @@
   - response: `{ valid: true, steps, finalScore }` or `{ valid: false, reason, finalScore: 0 }`
 - GET `/api/ranking`
   - authentication required, no parameters
-  - response: `[{ username, bestScore }]` ordered by best score descending
+  - response: `[{ username, bestScore, startStation, destStation }]` ordered by best score descending
 
 ## Database Tables
  
